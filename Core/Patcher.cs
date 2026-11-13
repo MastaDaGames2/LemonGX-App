@@ -1,4 +1,4 @@
-﻿using MelonLoader.Installer.Core.PatchSteps;
+using MelonLoader.Installer.Core.PatchSteps;
 using System;
 using System.IO;
 
@@ -51,7 +51,9 @@ public class Patcher(PatchArguments arguments, IPatchLogger logger)
             IPatchStep[] steps =
             [
                 new DetectUnityVersion(),
-                new DownloadUnityDeps(),
+                // Lemon GX keeps the game's own libunity.so. LemonLoader 0.6 replaced it with a full engine build, but
+                // games built with engine code stripping crash with it (it looks up engine methods the game removed).
+                // A local Unity dependencies zip still works through ExtractUnityLibs.
                 new ExtractDependencies(),
                 new ExtractUnityLibs(),
                 new PatchManifest(),

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.IO;
 using System.IO.Compression;
@@ -73,6 +73,9 @@ internal class RepackAPK : IPatchStep
 
     private static void CopyTo(ZipArchive archive, string source, string dest, string matcher = "*.*")
     {
+        if (!Directory.Exists(source))
+            return;
+
         foreach (string file in Directory.GetFiles(source, matcher, SearchOption.AllDirectories))
         {
             string entryPath = Path.Combine(dest, Path.GetRelativePath(source, file)).Replace('\\', '/');
