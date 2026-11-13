@@ -1,4 +1,4 @@
-﻿using MelonLoader.Installer.App.Utils;
+using MelonLoader.Installer.App.Utils;
 using MelonLoader.Installer.Core;
 using System.IO.Compression;
 using System.Windows.Input;
@@ -83,7 +83,7 @@ public class PatchAppPageViewModel : BindableObject
 
         if (!loadResult)
         {
-            await PopupHelper.Toast("Selected file is not a valid LemonLoader plugin.");
+            await PopupHelper.Toast("Selected file is not a valid Lemon GX plugin.");
             return;
         }
 

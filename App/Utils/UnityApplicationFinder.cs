@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 
 #if ANDROID
 using Android.Content.PM;
@@ -110,7 +110,13 @@ namespace MelonLoader.Installer.App.Utils
             Status status = Status.Unpatched;
             if (!info.NativeLibraryDir?.Contains("arm64") ?? true)
                 status = Status.Unsupported;
+            // LemonLoader 0.6
             if (libs.Any(f => f.Contains("libBootstrap.so")) && libs.Any(f => f.Contains("libdobby.so")))
+                status = Status.Patched;
+
+            // Lemon GX: MelonLoader's bootstrap replaces Unity's libmain.so, which is only a few KB on its own
+            string? libMain = libs.FirstOrDefault(f => Path.GetFileName(f) == "libmain.so");
+            if (libMain != null && new FileInfo(libMain).Length > 1024 * 1024)
                 status = Status.Patched;
 
             return status;

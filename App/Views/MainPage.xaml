@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MelonLoader.Installer.App.Views.MainPage"
@@ -21,7 +21,7 @@
                   RowDefinitions="2*,2*,2*,*"
                   ColumnDefinitions="2*,*">
                 <Label Grid.Row="0"
-                       Text="LemonLoader"
+                       Text="Lemon GX"
                        FontSize="Title"
                        FontAttributes="Bold"
                        TextColor="{StaticResource Light}" />

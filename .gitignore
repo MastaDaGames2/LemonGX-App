@@ -399,3 +399,7 @@ FodyWeavers.xsd
 App/Assets/installer_deps.zip
 App/meloninstaller.keystore
 App/keystore-pass.txt
+
+# Lemon GX: build outputs and signing key
+App/Resources/Raw/melon_data.zip
+*.keystore

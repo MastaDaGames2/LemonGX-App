@@ -1,4 +1,4 @@
-﻿using AdvancedSharpAdbClient.Exceptions;
+using AdvancedSharpAdbClient.Exceptions;
 using MelonLoader.Installer.App.Views;
 using MelonLoader.Installer.Core;
 using Newtonsoft.Json.Linq;
@@ -202,51 +202,40 @@ public static class PatchRunner
             throw new Exception("Failed to download MelonLoader data");
     }
 
+    // Lemon GX ships its MelonLoader build inside the installer (Resources/Raw/melon_data.zip) instead of
+    // downloading LemonLoader's release. A melon_data.zip in Downloads (or on the desktop) overrides it for testing.
     private static async Task<bool> DownloadMelonData(string destination)
     {
-#if DEBUG
-        if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "melon_data/melon_data.zip")))
-        {
-            _logger?.Log("Using local melon data");
+        string[] overrides =
+        [
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "melon_data/melon_data.zip"),
+            "/sdcard/Download/melon_data.zip",
+        ];
 
-            File.Copy(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "melon_data/melon_data.zip"), destination);
+        foreach (string path in overrides)
+        {
+            if (!File.Exists(path))
+                continue;
+
+            _logger?.Log($"Using local melon data [ {path} ]");
+            File.Copy(path, destination, true);
             return true;
         }
-
-        if (File.Exists(@"/sdcard/Download/melon_data.zip"))
-        {
-            _logger?.Log("Using local melon data");
-
-            File.Copy(@"/sdcard/Download/melon_data.zip", destination);
-            return true;
-        }
-#endif
-
-        _logger?.Log("Retrieving release info from GitHub");
 
         try
         {
-            using HttpClient client = new();
-            client.DefaultRequestHeaders.Add("User-Agent", "MelonLoaderInstaller/1.0");
-
-            string releaseInfo = await client.GetStringAsync("https://api.github.com/repos/LemonLoader/MelonLoader/releases/latest");
-            JObject baseJson = JObject.Parse(releaseInfo);
-            JToken asset = baseJson["assets"]!
-                .First(a => a["name"]!.ToString().StartsWith("melon_data"));
-            string assetUrl = asset["browser_download_url"]!.ToString();
-
-            _logger?.Log($"Downloading [ {assetUrl} ]");
-            byte[] data = await client.GetByteArrayAsync(assetUrl);
-            await File.WriteAllBytesAsync(destination, data);
+            _logger?.Log("Using bundled MelonLoader data");
+            await using Stream bundled = await FileSystem.OpenAppPackageFileAsync("melon_data.zip");
+            await using FileStream file = File.Create(destination);
+            await bundled.CopyToAsync(file);
             _logger?.Log("Done");
+            return true;
         }
         catch (Exception ex)
         {
-            _logger?.Log("Failed to get release info from GitHub, aborting install.\n" + ex.ToString());
+            _logger?.Log("This installer has no bundled MelonLoader data, aborting install. " + ex);
             return false;
         }
-
-        return true;
     }
 
     private static async Task BackupAPKs(UnityApplicationFinder.Data data)
