@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/MastaDaGames2/LemonGX-Installer/releases/latest"><img src="https://img.shields.io/github/v/release/MastaDaGames2/LemonGX-Installer?label=download&style=for-the-badge&color=yellow"></a>
+  <a href="https://github.com/MastaDaGames2/LemonGX-Installer/releases"><img src="https://img.shields.io/github/downloads/MastaDaGames2/LemonGX-Installer/total?label=downloads&style=for-the-badge&color=red"></a>
 </p>
 
 ---
