@@ -14,7 +14,7 @@
 		<ApplicationTitle>MelonLoader.Installer.App</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.lemongx.installer</ApplicationId>
+		<ApplicationId>com.lemongx</ApplicationId>
 		<ApplicationIdGuid>fc3874cc-ee0f-4ebb-b248-5d88ddfd5fcb</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -32,7 +32,7 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <ApplicationTitle>Lemon GX</ApplicationTitle>
-	  <ApplicationId>com.lemongx.installer</ApplicationId>
+	  <ApplicationId>com.lemongx</ApplicationId>
 	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <SupportedOSPlatformVersion>27.0</SupportedOSPlatformVersion>
@@ -44,13 +44,13 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
 	  <ApplicationTitle>Lemon GX</ApplicationTitle>
-	  <ApplicationId>com.lemongx.installer</ApplicationId>
+	  <ApplicationId>com.lemongx</ApplicationId>
 	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 	  <ApplicationTitle>Lemon GX</ApplicationTitle>
-	  <ApplicationId>com.lemongx.installer</ApplicationId>
+	  <ApplicationId>com.lemongx</ApplicationId>
 	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
 	  <SupportedOSPlatformVersion>27.0</SupportedOSPlatformVersion>
 	  <AndroidKeyStore>True</AndroidKeyStore>
@@ -63,13 +63,13 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
 	  <ApplicationTitle>Lemon GX</ApplicationTitle>
-	  <ApplicationId>com.lemongx.installer</ApplicationId>
+	  <ApplicationId>com.lemongx</ApplicationId>
 	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" Color="#21262a" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\lemongx_icon.png" Color="#FF0000" />
 		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'android'" Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" />
 
 		<!-- Splash Screen -->
