@@ -31,7 +31,7 @@ See the [Lemon GX repo](https://github.com/MastaDaGames2/LemonGX) for how to use
 ## Building
 
 The app is a .NET MAUI project (`App/`). Build the loader first (see
-[docs/ANDROID.md](https://github.com/MastaDaGames2/LemonGX/blob/android-0.7.4/docs/ANDROID.md) in the Lemon GX
+[docs/ANDROID.md](https://github.com/MastaDaGames2/LemonGX/blob/main/docs/ANDROID.md) in the Lemon GX
 repo), then copy its `melon_data.zip` to `App/Resources/Raw/melon_data.zip` and publish:
 
 ```
