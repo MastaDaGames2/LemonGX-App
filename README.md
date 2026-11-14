@@ -2,15 +2,15 @@
   <img src="docs/images/lemongx.png" width="200" alt="Lemon GX icon">
 </p>
 
-<h1 align="center">Lemon GX Installer</h1>
+<h1 align="center">Lemon GX App</h1>
 
 <p align="center">
   The Android app that installs <a href="https://github.com/MastaDaGames2/LemonGX">Lemon GX</a> into Unity games.
 </p>
 
 <p align="center">
-  <a href="https://github.com/MastaDaGames2/LemonGX-Installer/releases/latest"><img src="https://img.shields.io/github/v/release/MastaDaGames2/LemonGX-Installer?label=download&style=for-the-badge&color=yellow"></a>
-  <a href="https://github.com/MastaDaGames2/LemonGX-Installer/releases"><img src="https://img.shields.io/github/downloads/MastaDaGames2/LemonGX-Installer/total?label=downloads&style=for-the-badge&color=red"></a>
+  <a href="https://github.com/MastaDaGames2/LemonGX-App/releases/latest"><img src="https://img.shields.io/github/v/release/MastaDaGames2/LemonGX-App?label=download&style=for-the-badge&color=yellow"></a>
+  <a href="https://github.com/MastaDaGames2/LemonGX-App/releases"><img src="https://img.shields.io/github/downloads/MastaDaGames2/LemonGX-App/total?label=downloads&style=for-the-badge&color=red"></a>
 </p>
 
 ---
